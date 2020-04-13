@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5FC-NX-JrP">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Media Feed-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MediaFeedViewController" customModule="AVFoundation_MediaFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Umb-dD-iaO">
+                                <rect key="frame" x="0.0" y="88" width="414" height="788"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sfN-u2-1m3">
+                                    <size key="itemSize" width="319" height="390"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mediaCell" id="LxA-Ur-b64">
+                                        <rect key="frame" x="37" y="50" width="340" height="340"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="j2Y-1O-nAA">
+                                            <rect key="frame" x="0.0" y="0.0" width="340" height="340"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uau-vL-Nsb">
+                                                    <rect key="frame" x="20" y="20.5" width="300" height="299"/>
+                                                    <color key="tintColor" red="0.96930998560000003" green="0.64052090139999995" blue="0.91155132559999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="uau-vL-Nsb" firstAttribute="top" secondItem="j2Y-1O-nAA" secondAttribute="top" constant="20" symbolic="YES" id="5Sw-Wf-Zvl"/>
+                                                <constraint firstItem="uau-vL-Nsb" firstAttribute="leading" secondItem="j2Y-1O-nAA" secondAttribute="leading" constant="20" symbolic="YES" id="U2i-kh-ryK"/>
+                                                <constraint firstAttribute="bottom" secondItem="uau-vL-Nsb" secondAttribute="bottom" constant="20" symbolic="YES" id="VuR-3A-vOV"/>
+                                                <constraint firstAttribute="trailing" secondItem="uau-vL-Nsb" secondAttribute="trailing" constant="20" symbolic="YES" id="a98-jL-916"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="340" height="340"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="headerView" id="d4O-Dk-HrY" customClass="HeaderView" customModule="AVFoundation_MediaFeed" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Umb-dD-iaO" secondAttribute="bottom" constant="20" symbolic="YES" id="Hnb-X4-vOh"/>
+                            <constraint firstItem="Umb-dD-iaO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nto-rP-cWR"/>
+                            <constraint firstItem="Umb-dD-iaO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="stQ-zo-uKK"/>
+                            <constraint firstItem="Umb-dD-iaO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xbV-ro-b5z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Media Feed" id="JEi-Um-5AI">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="photo.fill" catalog="system" id="hct-8l-khL">
+                                <color key="tintColor" red="0.96930998560000003" green="0.64052090139999995" blue="0.91155132559999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="photoLibraryButtonPressed:" destination="BYZ-38-t0r" id="9wZ-dQ-SWg"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="video.fill" catalog="system" id="LQy-CW-U5Y">
+                                <color key="tintColor" red="0.96930998560000003" green="0.64052090139999995" blue="0.91155132559999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="videoButtonPressed:" destination="BYZ-38-t0r" id="nsW-sF-Kwh"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="Umb-dD-iaO" id="bt7-rX-Kcm"/>
+                        <outlet property="photoLibraryButton" destination="hct-8l-khL" id="3zY-Yj-VxX"/>
+                        <outlet property="videoButton" destination="LQy-CW-U5Y" id="oOP-rf-DCN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="884.05797101449286" y="109.82142857142857"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zlc-jr-3Iq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5FC-NX-JrP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6pj-9f-lWz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="C9Q-lR-TxC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tdX-WU-Dxc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-26.086956521739133" y="109.82142857142857"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="photo.fill" catalog="system" width="64" height="46"/>
+        <image name="video.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="video.fill" catalog="system" width="64" height="40"/>
+    </resources>
+</document>
