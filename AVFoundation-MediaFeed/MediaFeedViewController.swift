@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation // video playback is done on a (CALayer) - all views are backed by a CALayer e.x if we want to make a view rounded we can only do this using the CALayer of that view... ex someView.layer.cornerRadius = 10
+import AVKit //  video playback is done with  AVPlayerViewController
 
 class MediaFeedViewController: UIViewController {
     
@@ -99,13 +101,35 @@ extension MediaFeedViewController: UICollectionViewDataSource {
 
 extension MediaFeedViewController: UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // when user clicks on a cell what do we want to happen
+        
+        // AVPlayer allows you to access the necessary items
+              let selectedVideoMedia = mediaObjects[indexPath.row]
+              guard let videoUrl = selectedVideoMedia.videoUrl else {
+                  return
+              }
+        
+         // NEED AVKIT in order to access the following properties
+        let playerViewController = AVPlayerViewController()
+        let player = AVPlayer(url: videoUrl)
+        playerViewController.player = player
+        present(playerViewController, animated: true){
+            // play video automatically
+            player.play() // This will automatically play !!
+        }
+
+
+      
+       // present(playerViewController, animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxSize: CGSize = UIScreen.main.bounds.size
         let itemWidth: CGFloat = maxSize.width
         let itemHeight: CGFloat = maxSize.height * 0.4
         
         return CGSize(width: itemWidth, height: itemHeight)
-        
     }
     
   
