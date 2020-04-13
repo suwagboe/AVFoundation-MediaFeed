@@ -10,4 +10,18 @@ import UIKit
 
 class MediaCell: UICollectionViewCell {
     
+    
+    @IBOutlet weak var mediaImageVIew: UIImageView!
+    
+    public func configureCell(for mediaObject: MediaObject){
+        // regardless if media is image or video it should have an associated image
+        //
+        guard let imageData = mediaObject.imageData else {
+            return
+        }
+        mediaImageVIew.image = UIImage(data: imageData) // takes in data converts to an image 
+    }
+    
+    // TODO: create a video preview thumbnail 
+    
 }

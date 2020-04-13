@@ -18,24 +18,32 @@ class MediaFeedViewController: UIViewController {
     private lazy var imagePickerController: UIImagePickerController = {
         let mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)
         let pickerController = UIImagePickerController()
-        pickerController.mediaTypes = mediaTypes ?? ["kuTTypesImage"]
+        pickerController.mediaTypes = mediaTypes ?? ["kUTTypeImage"]
         pickerController.delegate = self
         // need to conform to the delegate for above in order for it to work and take out the errors
        return pickerController
     }()
     
-    
+    private var mediaObjects = [MediaObject]() {
+        didSet{
+            collectionView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        configureCollectionView()
-       
+        configureNeededUIThings()
+        
     }
     
-    private func configureCollectionView(){
+    private func configureNeededUIThings(){
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+                     videoButton.isEnabled = false
+                 }
     }
     
     
@@ -45,6 +53,9 @@ class MediaFeedViewController: UIViewController {
     }
     
     @IBAction func photoLibraryButtonPressed(_ sender: UIBarButtonItem) {
+        
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true)
     }
     
 
@@ -55,12 +66,16 @@ class MediaFeedViewController: UIViewController {
 extension MediaFeedViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return mediaObjects.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mediaCell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mediaCell", for: indexPath) as? MediaCell else {
+            fatalError("couldn't dequeue a media cell ")
+        }
         
+        let selectedImage = mediaObjects[indexPath.row]
+        cell.configureCell(for: selectedImage)
         return cell
     }
     
@@ -109,13 +124,39 @@ extension MediaFeedViewController: UIImagePickerControllerDelegate, UINavigation
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // inside of a dictionary
-        // infoKey.originalImage
+        
+        // things we want in a info dictionary
+        // infoKey.originalImage - UIImage
+        // InfoKey.mediaType - String
+        // InfoKey.mediaURL - URL
         
         // its optional so wanna unwrapp it
         guard let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? String else {
             return
         }
         
-        print("mediaType: \(mediaType)")
+        switch mediaType {
+        case "public.image":
+            if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
+                let imageData = originalImage.jpegData(compressionQuality: 1.0){
+                // create a media object and convert to a data object
+                 let newMediaObject = MediaObject(imageData: imageData, videoUrl: nil, caption: nil)
+                mediaObjects.append(newMediaObject)
+            }
+        case "public.movie":
+            if let mediaURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
+                print("media: \(mediaURL)")
+                // make sure in the model it follows the same type that it needs to be
+                let mediaObject = MediaObject(imageData: nil, videoUrl: mediaURL, caption: nil)
+                
+                mediaObjects.append(mediaObject)
+            }
+        default :
+            print("unsuported mediaType")
+        }
+        
+      //  print("mediaType: \(mediaType)") // "public.movie", "public.image"
+        
+        picker.dismiss(animated: true)
     }
 }

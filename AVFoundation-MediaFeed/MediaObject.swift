@@ -14,7 +14,7 @@ import Foundation
 struct MediaObject {
     // custom objects should have an id and a date object as best practice 
     let imageData: Data?
-    let videoUrl: String?
+    let videoUrl: URL?
     let caption: String? // UI so user can enter text
     let id = UUID().uuidString // an idtifier
     let createdDate = Date()
