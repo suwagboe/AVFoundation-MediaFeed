@@ -17,6 +17,8 @@ class MediaFeedViewController: UIViewController {
     @IBOutlet weak var videoButton: UIBarButtonItem!
     @IBOutlet weak var photoLibraryButton: UIBarButtonItem!
     
+    
+    // need this in order to access properties inside of the phone...
     private lazy var imagePickerController: UIImagePickerController = {
         let mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)
         let pickerController = UIImagePickerController()
@@ -43,9 +45,8 @@ class MediaFeedViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
-                     videoButton.isEnabled = false
-                 }
+    if !UIImagePickerController.isSourceTypeAvailable(.camera){ videoButton.isEnabled = false }
+        
     }
     
     
@@ -62,6 +63,39 @@ class MediaFeedViewController: UIViewController {
         present(imagePickerController, animated: true)
     }
     
+    
+    private func playRandomVideo(in view: UIView) {
+        // we want all non-nil media objects from the mediaObjects array
+        // guard against it? (no)
+        //use compact.map - returns all non nil values
+        
+        // this goes inside of the mediaObjects and takes out all the values that are already there
+        // when you use map it will return optional values so we use compactMap instead
+        let videoURLs = mediaObjects.compactMap { $0.videoUrl }
+        
+        // selects a random values from the array of URLs above
+        if let videoURL = videoURLs.randomElement() {
+            let player = AVPlayer(url: videoURL)
+            
+            // create a (subLayer)CALayer to project to
+            let playerLayer = AVPlayerLayer(player: player)
+            
+            // this is the view getting passed in from the function
+            /// self.view -- would refere to the one inside of this view controller
+            playerLayer.frame = view.bounds // take up the entire headerView
+            // set video aspect ratio
+            playerLayer.videoGravity = .resizeAspect
+            
+            // remove all sublayers from the header view
+            view.layer.sublayers?.removeAll() // using the ? and not the ! because there is a chance that there might not be an actual value there
+            
+            // add the playerlayer to the headerView's layer
+            view.layer.addSublayer(playerLayer)
+            
+            // play the video
+            player.play()
+        }
+    }
 
 }
 
@@ -92,7 +126,10 @@ extension MediaFeedViewController: UICollectionViewDataSource {
         guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerView", for: indexPath) as? HeaderView else {
             fatalError("couldnt dequeue to headerView ")
             }
-        return headerView
+        
+        playRandomVideo(in: headerView)
+        
+        return headerView // is a reusable view
     }
         
     
