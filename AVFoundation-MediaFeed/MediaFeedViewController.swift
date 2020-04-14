@@ -49,8 +49,10 @@ class MediaFeedViewController: UIViewController {
     }
     
     
-    @IBAction func videoButtonPressed(_ sender: UIBarButtonItem                        ) {
+    @IBAction func videoButtonPressed(_ sender: UIBarButtonItem  ) {
         
+        imagePickerController.sourceType = .camera
+        present(imagePickerController, animated: true)
         
     }
     
