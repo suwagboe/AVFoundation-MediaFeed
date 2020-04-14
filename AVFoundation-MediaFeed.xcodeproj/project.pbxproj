@@ -16,6 +16,7 @@
 		55BB95C52444C0280010E5D7 /* MediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BB95C42444C0280010E5D7 /* MediaCell.swift */; };
 		55BB95C82444C0690010E5D7 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BB95C72444C0690010E5D7 /* HeaderView.swift */; };
 		55BB95CA2444C4040010E5D7 /* MediaObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BB95C92444C4040010E5D7 /* MediaObject.swift */; };
+		55BB95CC2444EB4F0010E5D7 /* URL+VideoPreviewThumbNail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BB95CB2444EB4F0010E5D7 /* URL+VideoPreviewThumbNail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		55BB95C42444C0280010E5D7 /* MediaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCell.swift; sourceTree = "<group>"; };
 		55BB95C72444C0690010E5D7 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		55BB95C92444C4040010E5D7 /* MediaObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaObject.swift; sourceTree = "<group>"; };
+		55BB95CB2444EB4F0010E5D7 /* URL+VideoPreviewThumbNail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+VideoPreviewThumbNail.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				5523CBC92444B9B900B031A6 /* MediaFeedViewController.swift */,
+				55BB95CB2444EB4F0010E5D7 /* URL+VideoPreviewThumbNail.swift */,
 				55BB95C42444C0280010E5D7 /* MediaCell.swift */,
 				55BB95C72444C0690010E5D7 /* HeaderView.swift */,
 				55BB95C92444C4040010E5D7 /* MediaObject.swift */,
@@ -161,6 +164,7 @@
 				5523CBC62444B9B900B031A6 /* AppDelegate.swift in Sources */,
 				55BB95C52444C0280010E5D7 /* MediaCell.swift in Sources */,
 				5523CBC82444B9B900B031A6 /* SceneDelegate.swift in Sources */,
+				55BB95CC2444EB4F0010E5D7 /* URL+VideoPreviewThumbNail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,12 +16,18 @@ class MediaCell: UICollectionViewCell {
     public func configureCell(for mediaObject: MediaObject){
         // regardless if media is image or video it should have an associated image
         //
-        guard let imageData = mediaObject.imageData else {
-            return
+        if let imageData = mediaObject.imageData {
+                mediaImageVIew.image = UIImage(data: imageData) // takes in data converts to an image
         }
-        mediaImageVIew.image = UIImage(data: imageData) // takes in data converts to an image 
+     
+        
+        // TODO: create a video preview thumbnail
+        if let videoURL = mediaObject.videoUrl {
+            let image = videoURL.videoPreviewThumbnail() ?? UIImage(systemName: "heart")
+            mediaImageVIew.image = image
+        }
     }
     
-    // TODO: create a video preview thumbnail 
+    
     
 }
