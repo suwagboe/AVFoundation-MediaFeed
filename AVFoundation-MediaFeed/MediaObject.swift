@@ -11,7 +11,7 @@ import Foundation
 // data for the cells
 // mediaobject instance can be video or image content
 
-struct MediaObject {
+struct MediaObject: Codable {
     // custom objects should have an id and a date object as best practice 
     let imageData: Data?
     let videoUrl: URL?

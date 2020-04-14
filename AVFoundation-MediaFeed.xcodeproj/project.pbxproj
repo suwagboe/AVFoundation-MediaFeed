@@ -14,6 +14,8 @@
 		5523CBCF2444B9BD00B031A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5523CBCE2444B9BD00B031A6 /* Assets.xcassets */; };
 		5523CBD22444B9BD00B031A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5523CBD02444B9BD00B031A6 /* LaunchScreen.storyboard */; };
 		55695292244619170033E202 /* MediaFeedDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55695290244619170033E202 /* MediaFeedDataModel.xcdatamodeld */; };
+		5569529524461BE50033E202 /* CDMediaObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5569529324461BE50033E202 /* CDMediaObject+CoreDataClass.swift */; };
+		5569529624461BE50033E202 /* CDMediaObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5569529424461BE50033E202 /* CDMediaObject+CoreDataProperties.swift */; };
 		55BB95C52444C0280010E5D7 /* MediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BB95C42444C0280010E5D7 /* MediaCell.swift */; };
 		55BB95C82444C0690010E5D7 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BB95C72444C0690010E5D7 /* HeaderView.swift */; };
 		55BB95CA2444C4040010E5D7 /* MediaObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BB95C92444C4040010E5D7 /* MediaObject.swift */; };
@@ -30,6 +32,8 @@
 		5523CBD12444B9BD00B031A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5523CBD32444B9BD00B031A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55695291244619170033E202 /* MediaFeedDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MediaFeedDataModel.xcdatamodel; sourceTree = "<group>"; };
+		5569529324461BE50033E202 /* CDMediaObject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDMediaObject+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5569529424461BE50033E202 /* CDMediaObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDMediaObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		55BB95C42444C0280010E5D7 /* MediaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCell.swift; sourceTree = "<group>"; };
 		55BB95C72444C0690010E5D7 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		55BB95C92444C4040010E5D7 /* MediaObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaObject.swift; sourceTree = "<group>"; };
@@ -66,15 +70,17 @@
 		5523CBC42444B9B900B031A6 /* AVFoundation-MediaFeed */ = {
 			isa = PBXGroup;
 			children = (
+				5569529324461BE50033E202 /* CDMediaObject+CoreDataClass.swift */,
+				5569529424461BE50033E202 /* CDMediaObject+CoreDataProperties.swift */,
 				5523CBC92444B9B900B031A6 /* MediaFeedViewController.swift */,
 				55BB95CB2444EB4F0010E5D7 /* URL+VideoPreviewThumbNail.swift */,
 				55BB95C42444C0280010E5D7 /* MediaCell.swift */,
 				55BB95C72444C0690010E5D7 /* HeaderView.swift */,
 				55BB95C92444C4040010E5D7 /* MediaObject.swift */,
-				55695290244619170033E202 /* MediaFeedDataModel.xcdatamodeld */,
 				5523CBCB2444B9B900B031A6 /* Main.storyboard */,
 				55BB95C62444C0480010E5D7 /* supporting */,
 				5523CBD32444B9BD00B031A6 /* Info.plist */,
+				55695290244619170033E202 /* MediaFeedDataModel.xcdatamodeld */,
 			);
 			path = "AVFoundation-MediaFeed";
 			sourceTree = "<group>";
@@ -163,11 +169,13 @@
 			files = (
 				55BB95C82444C0690010E5D7 /* HeaderView.swift in Sources */,
 				55BB95CA2444C4040010E5D7 /* MediaObject.swift in Sources */,
+				5569529624461BE50033E202 /* CDMediaObject+CoreDataProperties.swift in Sources */,
 				5523CBCA2444B9B900B031A6 /* MediaFeedViewController.swift in Sources */,
 				5523CBC62444B9B900B031A6 /* AppDelegate.swift in Sources */,
 				55BB95C52444C0280010E5D7 /* MediaCell.swift in Sources */,
 				5523CBC82444B9B900B031A6 /* SceneDelegate.swift in Sources */,
 				55695292244619170033E202 /* MediaFeedDataModel.xcdatamodeld in Sources */,
+				5569529524461BE50033E202 /* CDMediaObject+CoreDataClass.swift in Sources */,
 				55BB95CC2444EB4F0010E5D7 /* URL+VideoPreviewThumbNail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
